@@ -10,14 +10,73 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text('BMI CALCULATOR')),
+        title: const Center(child: Text('BMI CALCULATOR')),
       ),
-      body: Center(
-        child: Text('Body Text'),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.add),
+      body: Column(
+        children: [
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    margin: const EdgeInsets.all(15),
+                    decoration: const BoxDecoration(
+                      color: Color(0xFF1D1E33),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    margin: const EdgeInsets.all(15),
+                    decoration: const BoxDecoration(
+                      color: Color(0xFF1D1E33),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    margin: const EdgeInsets.all(15),
+                    decoration: const BoxDecoration(
+                      color: Color(0xFF1D1E33),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: Expanded(
+                    child: Container(
+                      margin: const EdgeInsets.all(15),
+                      decoration: const BoxDecoration(
+                        color: Color(0xFF1D1E33),
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Expanded(
+                    child: Container(
+                      margin: const EdgeInsets.all(15),
+                      decoration: const BoxDecoration(
+                        color: Color(0xFF1D1E33),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
