@@ -1,5 +1,8 @@
+import 'package:bmi_calculator/const/icon_content.dart';
 import 'package:bmi_calculator/const/reusable_card.dart';
+import 'package:bmi_calculator/const/reusable_const.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -20,13 +23,20 @@ class _InputPageState extends State<InputPage> {
               children: const [
                 Expanded(
                   child: ReusableCard(
-                    colour: Color(0xFF1D1E33),
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.mars,
+                      textcontent: 'MALE',
+                    ),
+                    colour: activeCardColor,
                   ),
                 ),
                 Expanded(
-                    child: ReusableCard(
-                  colour: Color(0xFF1D1E33),
-                )),
+                  child: ReusableCard(
+                    cardChild: IconContent(
+                        icon: FontAwesomeIcons.venus, textcontent: 'FEMALE'),
+                    colour: activeCardColor,
+                  ),
+                ),
               ],
             ),
           ),
@@ -35,7 +45,7 @@ class _InputPageState extends State<InputPage> {
               children: const [
                 Expanded(
                     child: ReusableCard(
-                  colour: Color(0xFF1D1E33),
+                  colour: activeCardColor,
                 )),
               ],
             ),
@@ -45,17 +55,23 @@ class _InputPageState extends State<InputPage> {
               children: const [
                 Expanded(
                   child: ReusableCard(
-                    colour: Color(0xFF1D1E33),
+                    colour: activeCardColor,
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
-                    colour: Color(0xFF1D1E33),
+                    colour: activeCardColor,
                   ),
                 ),
               ],
             ),
           ),
+          Container(
+            color: buttomContainerColour,
+            margin: const EdgeInsets.only(top: 10.0),
+            height: bottomButtonHeight,
+            width: double.infinity,
+          )
         ],
       ),
     );
