@@ -1,6 +1,10 @@
+import 'package:bmi_calculator/calculator_brain.dart';
+import 'package:bmi_calculator/const/botton_button.dart';
 import 'package:bmi_calculator/const/icon_content.dart';
 import 'package:bmi_calculator/const/reusable_card.dart';
 import 'package:bmi_calculator/const/constants.dart';
+import 'package:bmi_calculator/const/round_icon_button.dart';
+import 'package:bmi_calculator/views/result_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -15,6 +19,7 @@ class _InputPageState extends State<InputPage> {
   Gender? selectedGender;
   int height = 180;
   int weight = 60;
+  int age = 18;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -133,24 +138,24 @@ class _InputPageState extends State<InputPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            FloatingActionButton(
-                              onPressed: () {},
-                              backgroundColor: Color(0xFF4C4F5E),
-                              child: Icon(
-                                Icons.add,
-                                color: Colors.white,
-                              ),
+                            RoundIconButton(
+                              onPressed: () {
+                                setState(() {
+                                  weight--;
+                                });
+                              },
+                              icondata: FontAwesomeIcons.minus,
                             ),
                             SizedBox(
                               width: 10.0,
                             ),
-                            FloatingActionButton(
-                              onPressed: () {},
-                              backgroundColor: Color(0xFF4C4F5E),
-                              child: Icon(
-                                Icons.add,
-                                color: Colors.white,
-                              ),
+                            RoundIconButton(
+                              onPressed: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
+                              icondata: FontAwesomeIcons.plus,
                             ),
                           ],
                         )
@@ -161,17 +166,67 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     colour: activeCardColor,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'AGE',
+                          style: labelTextStyle,
+                        ),
+                        Text(
+                          age.toString(),
+                          style: numberTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(
+                              onPressed: () {
+                                setState(() {
+                                  age--;
+                                });
+                              },
+                              icondata: FontAwesomeIcons.minus,
+                            ),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            RoundIconButton(
+                              onPressed: () {
+                                setState(() {
+                                  age++;
+                                });
+                              },
+                              icondata: FontAwesomeIcons.plus,
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ],
             ),
           ),
-          Container(
-            color: containerColour,
-            margin: const EdgeInsets.only(top: 10.0),
-            height: bottomButtonHeight,
-            width: double.infinity,
-          )
+          BottomButton(
+            buttonText: 'CALCULATE',
+            onTap: () {
+              CalculatorBrain calc = CalculatorBrain(
+                height: height,
+                weight: weight,
+              );
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultPage(
+                    bmiResult: calc.calculateBMI(),
+                    resultText: calc.getResult(),
+                    interpretation: calc.getInterpretation(),
+                  ),
+                ),
+              );
+            },
+          ),
         ],
       ),
     );

@@ -14,3 +14,24 @@ const numberTextStyle = TextStyle(
   fontSize: 50.0,
   fontWeight: FontWeight.w900,
 );
+
+const largeButtonTextStyle = TextStyle(
+  fontSize: 25,
+  fontWeight: FontWeight.bold,
+);
+
+const titleTextStyle = TextStyle(
+  fontWeight: FontWeight.bold,
+  fontSize: 50.0,
+);
+
+const resultTextStyle = TextStyle(
+  color: Color(0xFF24D876),
+  fontSize: 22.0,
+  fontWeight: FontWeight.bold,
+);
+
+const BMITextStyle = TextStyle(
+  fontSize: 100.00,
+  fontWeight: FontWeight.bold,
+);
