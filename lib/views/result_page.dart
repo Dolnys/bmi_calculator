@@ -43,11 +43,11 @@ class ResultPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    bmiResult,
+                    resultText,
                     style: resultTextStyle,
                   ),
                   Text(
-                    '18.3',
+                    bmiResult,
                     style: BMITextStyle,
                   ),
                   Text(
